@@ -28,13 +28,13 @@ le_cosigner.fit(['Yes', 'No'])
 # Defining the Streamlit app
 def main():
     # Setting the title of the app
-    st.title('Loan Prediction App')
+    st.title('Loan Defaulter Prediction App')
 
     # Adding an image
     st.image('loanimage.jpeg', use_column_width=True)
 
     # Adding a brief description
-    st.write('Enter the details below to get loan prediction')
+    st.write('Enter the applicant details below, to get if an applicant will default in paying back obtained loan')
 
     # Generating two columns
     col1, col2 = st.columns(2)
