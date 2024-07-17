@@ -71,7 +71,7 @@ def main():
 
     # Creating a button to make predictions
     if st.button('Predict'):
-        # Combine input data into a numpy array
+        # Combining input data into a numpy array
         data_array = np.array([[age, income, loan_amount, credit_score, months_employed, num_credit_lines,
                                 interest_rate, loan_term, dti_ratio, education, employment_type, marital_status,
                                 has_mortgage, has_dependents, loan_purpose, has_co_signer]])
@@ -84,9 +84,14 @@ def main():
 
         # Making predictions
         prediction = model.predict(final_data)
-
+        probability = model.predict_proba(final_data)
+        
         # Displaying prediction
         st.write(f'Prediction: {"Will Default" if prediction[0] == 1 else "Will Not Default"}')
+
+        # Displaying the probability of default if prediction is 1
+        if prediction[0] == 1:
+            st.write(f'Probability of Defaulting is: {probability[0][1] * 100:.2f}%')
 
 # Running the Streamlit app
 if __name__ == '__main__':
